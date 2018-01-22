@@ -12,5 +12,15 @@
 				"Engine"
 			]
 		}
+	],
+	"Plugins": [
+		{
+			"Name": "KeyPluginManager",
+			"Enabled": false
+		},
+		{
+			"Name": "LicenseKeyPlugin",
+			"Enabled": true
+		}
 	]
 }
