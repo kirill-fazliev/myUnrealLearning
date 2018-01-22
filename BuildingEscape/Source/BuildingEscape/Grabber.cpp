@@ -71,8 +71,8 @@ const FHitResult UGrabber::GetFirstPhysicsBodyInReach()
 // Called every frame
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
-
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	if (!PhysicsHandle)	{return;}
 	// ...
 	if (PhysicsHandle->GrabbedComponent)
 	{
@@ -90,6 +90,7 @@ void UGrabber::Grab()
 
 	if (ActorHit)
 	{
+		if (!PhysicsHandle) { return; }
 		PhysicsHandle->GrabComponent(
 			ComponentToGrab,
 			NAME_None,
@@ -100,6 +101,7 @@ void UGrabber::Grab()
 
 void UGrabber::Release()
 {
+	if (!PhysicsHandle) { return; }
 	PhysicsHandle->ReleaseComponent();
 	UE_LOG(LogTemp, Log, TEXT("Grab released"));
 }
